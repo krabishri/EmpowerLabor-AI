@@ -1,0 +1,267 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Job Mentor Agent – Project Overview</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;background:#f7f8fa;color:#1f2328}
+.wrap{max-width:760px;margin:0 auto;padding:32px 20px}
+h1{font-size:22px;font-weight:800;color:#1a56db;margin-bottom:4px}
+.subtitle{font-size:13px;color:#57606a;margin-bottom:28px}
+h2{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#57606a;margin:24px 0 10px}
+.hero{background:linear-gradient(135deg,#1a56db,#0f3d9e);border-radius:14px;padding:24px 28px;color:#fff;margin-bottom:28px}
+.hero h1{color:#fff;font-size:24px}
+.hero p{color:rgba(255,255,255,.85);margin-top:6px;font-size:14px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:100px;padding:4px 12px;font-size:12px;font-weight:500}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.card{background:#fff;border:1px solid #e2e5eb;border-radius:12px;padding:16px}
+.card-icon{font-size:22px;margin-bottom:8px}
+.card h3{font-size:14px;font-weight:700;color:#1f2328;margin-bottom:4px}
+.card p{font-size:13px;color:#57606a}
+.file-tree{background:#fff;border:1px solid #e2e5eb;border-radius:12px;padding:16px 20px;font-family:"Consolas","Courier New",monospace;font-size:13px;margin-bottom:24px}
+.file-tree .dir{color:#1a56db;font-weight:600}
+.file-tree .file{color:#1f2328}
+.file-tree .comment{color:#57606a;font-style:italic}
+.file-tree li{list-style:none;padding:2px 0}
+.file-tree ul{padding-left:20px}
+.steps{counter-reset:step;margin-bottom:24px}
+.step{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #e2e5eb;align-items:flex-start}
+.step:last-child{border-bottom:none}
+.step-num{width:28px;height:28px;background:#1a56db;color:#fff;border-radius:50%;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-body h4{font-size:14px;font-weight:700;color:#1f2328;margin-bottom:2px}
+.step-body p{font-size:13px;color:#57606a}
+code{background:#eef0f4;border-radius:5px;padding:2px 7px;font-family:"Consolas","Courier New",monospace;font-size:12px;color:#1a56db}
+.code-block{background:#0f172a;border-radius:10px;padding:14px 18px;font-family:"Consolas","Courier New",monospace;font-size:12.5px;color:#e2e8f0;margin:8px 0;overflow-x:auto}
+.code-block .k{color:#93c5fd}
+.code-block .s{color:#86efac}
+.code-block .c{color:#64748b;font-style:italic}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:16px}
+th{background:#eef0f4;text-align:left;padding:8px 12px;font-weight:600;color:#57606a;font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+td{padding:8px 12px;border-bottom:1px solid #e2e5eb;color:#1f2328}
+tr:last-child td{border-bottom:none}
+.badge{display:inline-block;padding:2px 8px;border-radius:100px;font-size:11px;font-weight:600}
+.badge-blue{background:#ebf0ff;color:#1a56db}
+.badge-green{background:#f0fdf4;color:#166534}
+.badge-orange{background:#fff7ed;color:#ea580c}
+.badge-purple{background:#f5f3ff;color:#6d28d9}
+.badge-teal{background:#f0fdfa;color:#0f766e}
+.warn{background:#fffbeb;border:1px solid #fcd34d;border-radius:10px;padding:12px 16px;font-size:13px;color:#92400e;margin-bottom:16px}
+.warn strong{color:#78350f}
+.section{margin-bottom:28px}
+.agent-box{background:#fff;border:2px solid #1a56db;border-radius:12px;padding:16px 20px;margin-bottom:24px}
+.agent-box h3{font-size:14px;font-weight:700;color:#1a56db;margin-bottom:8px}
+.agent-box ul{padding-left:18px}
+.agent-box li{font-size:13px;color:#1f2328;padding:2px 0}
+.lang-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px}
+.lang-item{background:#f5f3ff;border:1px solid rgba(109,40,217,.2);border-radius:8px;padding:6px 10px;text-align:center;font-size:13px;color:#6d28d9;font-weight:500}
+footer{border-top:1px solid #e2e5eb;margin-top:40px;padding-top:16px;text-align:center;font-size:11px;color:#8b949e}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  
+  <div class="hero">
+    <h1>🤖 Job Mentor Agent</h1>
+    <p>AI-powered career guide for India's informal workers — built with Python Flask + IBM Watsonx.ai Granite Models</p>
+    <div class="pills">
+      <span class="pill">💼 Job Matching</span>
+      <span class="pill">🎓 Upskilling</span>
+      <span class="pill">🛡️ Welfare Schemes</span>
+      <span class="pill">🎙️ Voice Input</span>
+      <span class="pill">♿ Accessible</span>
+      <span class="pill">🌐 11 Languages</span>
+    </div>
+  </div>
+
+  
+  <h2>Features</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">🤖</div>
+      <h3>Mentor Chat</h3>
+      <p>Warm, multilingual career guidance. Responds in the same language as the user — Hindi, Tamil, Telugu, and 8 more.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💼</div>
+      <h3>Job Matching</h3>
+      <p>Localized daily-wage &amp; gig job suggestions with daily ₹ wage, required skills, physical demand, and seasonal availability.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎓</div>
+      <h3>Upskilling Roadmap</h3>
+      <p>3-step learning paths mapped to IBM SkillsBuild, PMKVY, NSDC, and state skill missions. Tracks completion with checkboxes.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h3>Welfare Eligibility</h3>
+      <p>Plain-language breakdown of PM-KISAN, MGNREGS, Ayushman Bharat, PM SVANidhi, Ujjwala Yojana, and more.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎙️</div>
+      <h3>Voice Profile</h3>
+      <p>Large tap-friendly mic buttons for voice input. Supports all 11 Indian languages via Web Speech API.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">♿</div>
+      <h3>Full Accessibility</h3>
+      <p>High-contrast mode, large-text toggle, ARIA live regions, screen reader announcements, skip links, focus management.</p>
+    </div>
+  </div>
+
+  
+  <h2>Project Structure</h2>
+  <div class="file-tree">
+    <ul>
+      <li><span class="dir">job_mentor_agent/</span></li>
+      <li><ul>
+        <li><span class="file">app.py</span> <span class="comment">← Flask backend + AGENT_INSTRUCTIONS</span></li>
+        <li><span class="file">requirements.txt</span> <span class="comment">← 5 Python packages</span></li>
+        <li><span class="file">.env.example</span> <span class="comment">← Credential template (copy to .env)</span></li>
+        <li><span class="file">README.md</span> <span class="comment">← Full deployment guide</span></li>
+        <li><span class="dir">templates/</span></li>
+        <li><ul>
+          <li><span class="file">index.html</span> <span class="comment">← Chat interface</span></li>
+          <li><span class="file">dashboard.html</span> <span class="comment">← Job / Upskill / Welfare dashboard</span></li>
+        </ul></li>
+        <li><span class="dir">static/css/</span></li>
+        <li><ul>
+          <li><span class="file">style.css</span> <span class="comment">← Bootstrap 5 + custom responsive styles</span></li>
+        </ul></li>
+        <li><span class="dir">static/js/</span></li>
+        <li><ul>
+          <li><span class="file">app.js</span> <span class="comment">← Chat, voice input, mode switching, profile</span></li>
+          <li><span class="file">dashboard.js</span> <span class="comment">← Dashboard panels, course tracker, voice</span></li>
+        </ul></li>
+      </ul></li>
+    </ul>
+  </div>
+
+  
+  <div class="agent-box">
+    <h3>🔧 AGENT_INSTRUCTIONS — Customization Block (top of app.py)</h3>
+    <ul>
+      <li><strong>TONE &amp; PERSONA</strong> — Speaking style, reading level, empathy cues</li>
+      <li><strong>MULTILINGUAL PREFERENCES</strong> — Supported languages, auto-detect, code-switching rules</li>
+      <li><strong>DOMAIN FOCUS</strong> — Priority sectors, job parameter format, regional focus</li>
+      <li><strong>UPSKILLING</strong> — Course platforms (IBM SkillsBuild, PMKVY, NSDC), format rules</li>
+      <li><strong>WELFARE SCHEMES</strong> — Which schemes to cover, output format, eligibility disclaimer</li>
+      <li><strong>ENTERPRISE SAFETY RULES</strong> — Content blocks, distress routing, PII handling</li>
+    </ul>
+  </div>
+
+  
+  <h2>Quick Start (5 Steps)</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Create virtual environment</h4>
+        <div class="code-block"><span class="k">python</span> -m venv venv &amp;&amp; venv\Scripts\activate</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Install dependencies</h4>
+        <div class="code-block"><span class="k">pip</span> install -r requirements.txt</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Configure credentials</h4>
+        <p>Copy <code>.env.example</code> → <code>.env</code> and fill in your IBM Cloud API Key and Watsonx Project ID.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Run the app</h4>
+        <div class="code-block"><span class="k">python</span> app.py</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h4>Open in browser</h4>
+        <p>Go to <code>http://localhost:5000</code> — fill profile → choose mode → chat or speak!</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <h2>API Endpoints</h2>
+  <table>
+    <thead><tr><th>Method</th><th>Endpoint</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-blue">GET</span></td><td><code>/</code></td><td>Chat interface</td></tr>
+      <tr><td><span class="badge badge-blue">GET</span></td><td><code>/dashboard</code></td><td>Job/Upskill/Welfare dashboard</td></tr>
+      <tr><td><span class="badge badge-orange">POST</span></td><td><code>/api/chat</code></td><td>Send message with mode (CHAT / JOB_MATCH / UPSKILL / WELFARE)</td></tr>
+      <tr><td><span class="badge badge-green">GET/POST</span></td><td><code>/api/profile</code></td><td>Read or save user profile</td></tr>
+      <tr><td><span class="badge badge-orange">POST</span></td><td><code>/api/job-match</code></td><td>Localized job matching</td></tr>
+      <tr><td><span class="badge badge-orange">POST</span></td><td><code>/api/upskill</code></td><td>Upskilling roadmap generation</td></tr>
+      <tr><td><span class="badge badge-orange">POST</span></td><td><code>/api/welfare</code></td><td>Welfare eligibility check</td></tr>
+      <tr><td><span class="badge badge-orange">POST</span></td><td><code>/api/clear-history</code></td><td>Clear chat session</td></tr>
+      <tr><td><span class="badge badge-blue">GET</span></td><td><code>/api/health</code></td><td>Health &amp; config check</td></tr>
+    </tbody>
+  </table>
+
+  
+  <h2>Supported Languages</h2>
+  <div class="lang-grid">
+    <div class="lang-item">English</div>
+    <div class="lang-item">हिंदी</div>
+    <div class="lang-item">தமிழ்</div>
+    <div class="lang-item">తెలుగు</div>
+    <div class="lang-item">ಕನ್ನಡ</div>
+    <div class="lang-item">বাংলা</div>
+    <div class="lang-item">मराठी</div>
+    <div class="lang-item">മലയാളം</div>
+    <div class="lang-item">ਪੰਜਾਬੀ</div>
+    <div class="lang-item">ଓଡ଼ିଆ</div>
+    <div class="lang-item">اردو</div>
+    <div class="lang-item">+ Auto detect</div>
+  </div>
+
+  
+  <h2>Welfare Schemes Covered</h2>
+  <table>
+    <thead><tr><th>Scheme</th><th>Type</th><th>Benefit</th></tr></thead>
+    <tbody>
+      <tr><td><strong>PM-KISAN</strong></td><td><span class="badge badge-green">Income</span></td><td>₹6,000/year for farmers</td></tr>
+      <tr><td><strong>MGNREGS</strong></td><td><span class="badge badge-teal">Employment</span></td><td>100 days guaranteed rural employment</td></tr>
+      <tr><td><strong>PM Awas Yojana</strong></td><td><span class="badge badge-blue">Housing</span></td><td>Affordable housing assistance</td></tr>
+      <tr><td><strong>Ayushman Bharat</strong></td><td><span class="badge badge-orange">Health</span></td><td>Free health cover up to ₹5 lakh</td></tr>
+      <tr><td><strong>PM SVANidhi</strong></td><td><span class="badge badge-purple">Loan</span></td><td>Street vendor loans up to ₹50,000</td></tr>
+      <tr><td><strong>Ujjwala Yojana</strong></td><td><span class="badge badge-green">Subsidy</span></td><td>Free LPG connection for BPL families</td></tr>
+      <tr><td><strong>BOCW Welfare</strong></td><td><span class="badge badge-teal">Labour</span></td><td>Construction worker welfare fund</td></tr>
+    </tbody>
+  </table>
+
+  
+  <h2>Dependencies (requirements.txt)</h2>
+  <table>
+    <thead><tr><th>Package</th><th>Version</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><code>flask</code></td><td>3.0.3</td><td>Web framework</td></tr>
+      <tr><td><code>flask-session</code></td><td>0.8.0</td><td>Server-side chat session storage</td></tr>
+      <tr><td><code>python-dotenv</code></td><td>1.0.1</td><td>Load .env credentials securely</td></tr>
+      <tr><td><code>ibm-watsonx-ai</code></td><td>1.1.2</td><td>IBM Watsonx.ai SDK (Granite models)</td></tr>
+      <tr><td><code>gunicorn</code></td><td>22.0.0</td><td>Production WSGI server</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn">
+    <strong>⚠️ Security reminder:</strong> Never commit your <code>.env</code> file to version control. It contains your IBM Cloud API Key. The <code>.gitignore</code> already excludes it — keep it that way.
+  </div>
+
+  <footer>
+    <p>Made with IBM Bob  |  Job Mentor Agent — IBM Watsonx.ai + IBM SkillsBuild</p>
+  </footer>
+</div>
+</body>
+</html>

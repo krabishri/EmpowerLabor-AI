@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="description" content="AI Job Mentor for informal workers - get personalized job advice, upskilling paths, and welfare scheme guidance." />
+  <title>Job Mentor Agent – AI Career Guide for Workers</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+<!-- ── Skip link for screen readers ── -->
+<a href="#chat-input" class="skip-link">Skip to chat</a>
+
+<!-- ── Top Navigation ── -->
+<nav class="navbar navbar-expand-lg navbar-brand-custom sticky-top" role="navigation" aria-label="Main navigation">
+  <div class="container-fluid px-3">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+      <span class="brand-icon" aria-hidden="true">&#x1F4BC;</span>
+      <span class="brand-text">
+        <span class="brand-title">Job Mentor</span>
+        <span class="brand-sub">Powered by IBM Watsonx</span>
+      </span>
+    </a>
+
+    <div class="d-flex align-items-center gap-2 ms-auto">
+      <!-- High contrast toggle -->
+      <button id="contrastToggle" class="btn btn-icon-round" aria-label="Toggle high contrast mode" title="High contrast">
+        <i class="bi bi-circle-half" aria-hidden="true"></i>
+      </button>
+      <!-- Font size toggle -->
+      <button id="fontToggle" class="btn btn-icon-round" aria-label="Toggle large text" title="Large text">
+        <i class="bi bi-type-h1" aria-hidden="true"></i>
+      </button>
+      <!-- Dashboard link -->
+      <a href="/dashboard" class="btn btn-outline-light btn-sm px-3" aria-label="Go to dashboard">
+        <i class="bi bi-grid-3x3-gap me-1" aria-hidden="true"></i>Dashboard
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero Banner ── -->
+<section class="hero-banner" role="banner">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <h1 class="hero-title">Your Personal Career Guide</h1>
+        <p class="hero-subtitle">
+          Get job matches, upskilling advice, and government welfare guidance —
+          all in your own language.
+        </p>
+        <div class="hero-pills d-flex flex-wrap gap-2 mt-3" aria-label="Available features">
+          <span class="feature-pill"><i class="bi bi-briefcase-fill" aria-hidden="true"></i> Job Matching</span>
+          <span class="feature-pill"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i> Upskilling</span>
+          <span class="feature-pill"><i class="bi bi-shield-check-fill" aria-hidden="true"></i> Welfare Schemes</span>
+          <span class="feature-pill"><i class="bi bi-translate" aria-hidden="true"></i> 11 Languages</span>
+        </div>
+      </div>
+      <div class="col-lg-5 d-none d-lg-flex justify-content-end">
+        <div class="hero-graphic" aria-hidden="true">
+          <div class="hero-circle c1"></div>
+          <div class="hero-circle c2"></div>
+          <div class="hero-circle c3"></div>
+          <span class="hero-icon-main">&#x1F4BC;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Main Content ── -->
+<main class="container main-layout py-4" id="main-content">
+  <div class="row g-4">
+
+    <!-- ── LEFT: Profile Panel ── -->
+    <aside class="col-lg-3 col-md-4" aria-label="User profile">
+      <div class="card profile-card">
+        <div class="card-body">
+          <h2 class="card-title-custom">
+            <i class="bi bi-person-circle" aria-hidden="true"></i> Your Profile
+          </h2>
+          <form id="profileForm" aria-label="Setup your profile for better job matches">
+            <div class="mb-3">
+              <label for="pName" class="form-label-custom">Name</label>
+              <input type="text" class="form-control form-control-custom" id="pName" placeholder="Your name" autocomplete="name" />
+            </div>
+            <div class="mb-3">
+              <label for="pLocation" class="form-label-custom">
+                <i class="bi bi-geo-alt" aria-hidden="true"></i> Location
+              </label>
+              <input type="text" class="form-control form-control-custom" id="pLocation" placeholder="City / District / State" autocomplete="address-level2" />
+            </div>
+            <div class="mb-3">
+              <label for="pOccupation" class="form-label-custom">Current Work</label>
+              <input type="text" class="form-control form-control-custom" id="pOccupation" placeholder="e.g. Mason, Farmer, Vendor" />
+            </div>
+            <div class="mb-3">
+              <label for="pSkills" class="form-label-custom">Skills</label>
+              <input type="text" class="form-control form-control-custom" id="pSkills" placeholder="e.g. Driving, Sewing, Cooking" />
+            </div>
+            <div class="mb-3">
+              <label for="pEducation" class="form-label-custom">Education</label>
+              <select class="form-select form-control-custom" id="pEducation">
+                <option value="">Select level</option>
+                <option value="No formal education">No formal education</option>
+                <option value="Primary (up to Class 5)">Primary (Class 5)</option>
+                <option value="Middle school (Class 8)">Middle school (Class 8)</option>
+                <option value="High school (Class 10)">High school (Class 10)</option>
+                <option value="Class 12 / Intermediate">Class 12</option>
+                <option value="ITI / Diploma">ITI / Diploma</option>
+                <option value="Graduate">Graduate</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="pLanguages" class="form-label-custom">Languages</label>
+              <input type="text" class="form-control form-control-custom" id="pLanguages" placeholder="e.g. Hindi, Tamil" />
+            </div>
+            <div class="mb-3">
+              <label for="pSector" class="form-label-custom">Preferred Sector</label>
+              <select class="form-select form-control-custom" id="pSector">
+                <option value="">Any sector</option>
+                <option value="Construction">Construction</option>
+                <option value="Agriculture">Agriculture</option>
+                <option value="Domestic Work">Domestic Work</option>
+                <option value="Street Vending">Street Vending</option>
+                <option value="Textile & Garments">Textile & Garments</option>
+                <option value="Transport">Transport</option>
+                <option value="Fisheries">Fisheries</option>
+                <option value="Handicrafts">Handicrafts</option>
+                <option value="Healthcare Support">Healthcare Support</option>
+                <option value="Hospitality">Hospitality</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-save w-100">
+              <i class="bi bi-check-circle-fill me-1" aria-hidden="true"></i> Save Profile
+            </button>
+          </form>
+          <div id="profileSaved" class="profile-saved-notice" role="status" aria-live="polite" hidden>
+            <i class="bi bi-check-all" aria-hidden="true"></i> Profile saved!
+          </div>
+        </div>
+      </div>
+
+      <!-- Mode selector card -->
+      <div class="card mode-card mt-3">
+        <div class="card-body">
+          <h2 class="card-title-custom">
+            <i class="bi bi-sliders" aria-hidden="true"></i> Chat Mode
+          </h2>
+          <div class="mode-grid" role="radiogroup" aria-label="Select chat mode">
+            <button class="mode-btn active" data-mode="CHAT" aria-pressed="true">
+              <i class="bi bi-chat-heart-fill" aria-hidden="true"></i>
+              <span>Mentor Chat</span>
+            </button>
+            <button class="mode-btn" data-mode="JOB_MATCH" aria-pressed="false">
+              <i class="bi bi-briefcase-fill" aria-hidden="true"></i>
+              <span>Job Match</span>
+            </button>
+            <button class="mode-btn" data-mode="UPSKILL" aria-pressed="false">
+              <i class="bi bi-mortarboard-fill" aria-hidden="true"></i>
+              <span>Upskill</span>
+            </button>
+            <button class="mode-btn" data-mode="WELFARE" aria-pressed="false">
+              <i class="bi bi-shield-fill-check" aria-hidden="true"></i>
+              <span>Welfare</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick prompts -->
+      <div class="card quick-card mt-3">
+        <div class="card-body">
+          <h2 class="card-title-custom">
+            <i class="bi bi-lightning-fill" aria-hidden="true"></i> Quick Ask
+          </h2>
+          <div class="quick-prompts" role="list">
+            <button class="quick-prompt-btn" role="listitem" data-prompt="What jobs can I do near me with my current skills?">
+              Find local jobs for me
+            </button>
+            <button class="quick-prompt-btn" role="listitem" data-prompt="What free courses can help me earn more money?">
+              Free courses to earn more
+            </button>
+            <button class="quick-prompt-btn" role="listitem" data-prompt="Which government schemes am I eligible for?">
+              Check welfare eligibility
+            </button>
+            <button class="quick-prompt-btn" role="listitem" data-prompt="How can I register for MGNREGS work near me?">
+              Register for MGNREGS
+            </button>
+            <button class="quick-prompt-btn" role="listitem" data-prompt="Tell me about PM SVANidhi loan for street vendors">
+              PM SVANidhi loan info
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── CENTER: Chat Interface ── -->
+    <section class="col-lg-9 col-md-8" aria-label="Chat interface">
+      <div class="chat-wrapper">
+
+        <!-- Chat header -->
+        <div class="chat-header" role="heading" aria-level="2">
+          <div class="d-flex align-items-center gap-3">
+            <div class="agent-avatar" aria-hidden="true">
+              <span>&#x1F916;</span>
+            </div>
+            <div>
+              <div class="agent-name">Job Mentor Agent</div>
+              <div class="agent-status" id="agentStatus">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span id="statusText">Ready to help</span>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex gap-2">
+            <span class="mode-badge" id="currentModeBadge" aria-live="polite">MENTOR CHAT</span>
+            <button id="clearChatBtn" class="btn btn-icon-sm" aria-label="Clear chat history" title="Clear chat">
+              <i class="bi bi-trash3" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat messages area -->
+        <div class="chat-messages" id="chatMessages" role="log" aria-label="Chat messages" aria-live="polite" aria-atomic="false">
+          <!-- Welcome message -->
+          <div class="message-row agent-row">
+            <div class="msg-avatar agent-avatar-sm" aria-hidden="true">&#x1F916;</div>
+            <div class="msg-bubble agent-bubble">
+              <p class="mb-2"><strong>Namaste! I'm your Job Mentor Agent.</strong> &#x1F44B;</p>
+              <p class="mb-2">I'm here to help you with:</p>
+              <ul class="mb-2 ps-3">
+                <li>&#x1F4BC; Finding local jobs that match your skills</li>
+                <li>&#x1F393; Free upskilling courses to increase your income</li>
+                <li>&#x1F6E1;&#xFE0F; Government welfare schemes you qualify for</li>
+                <li>&#x1F5E3;&#xFE0F; Career advice in your own language</li>
+              </ul>
+              <p class="mb-0">Fill in your profile on the left, then ask me anything! You can also speak to me using the microphone button.</p>
+              <div class="msg-meta">
+                <span class="msg-time">Just now</span>
+                <span class="msg-mode">MENTOR CHAT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typing indicator -->
+        <div class="typing-indicator" id="typingIndicator" hidden aria-live="polite" aria-label="Agent is thinking">
+          <div class="msg-avatar agent-avatar-sm" aria-hidden="true">&#x1F916;</div>
+          <div class="typing-bubble">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="typing-text">Mentor is thinking...</span>
+          </div>
+        </div>
+
+        <!-- Chat input area -->
+        <div class="chat-input-area" id="chat-input">
+          <!-- Language hint -->
+          <div class="lang-hint" aria-live="polite" id="langHint">
+            <i class="bi bi-translate" aria-hidden="true"></i>
+            Type in any language: English, Hindi, Tamil, Telugu, Kannada, Bengali, Marathi and more
+          </div>
+
+          <div class="input-row">
+            <!-- Voice / Mic button -->
+            <button
+              id="micBtn"
+              class="btn btn-mic"
+              aria-label="Start voice input"
+              title="Speak your question"
+              aria-pressed="false"
+            >
+              <i class="bi bi-mic-fill" aria-hidden="true" id="micIcon"></i>
+              <span class="mic-ripple" id="micRipple" aria-hidden="true"></span>
+            </button>
+
+            <!-- Text input -->
+            <div class="input-wrapper">
+              <textarea
+                id="chatInput"
+                class="form-control chat-textarea"
+                placeholder="Ask me about jobs, courses, or welfare schemes..."
+                rows="1"
+                aria-label="Type your message"
+                aria-describedby="langHint"
+                maxlength="2000"
+              ></textarea>
+            </div>
+
+            <!-- Send button -->
+            <button
+              id="sendBtn"
+              class="btn btn-send"
+              aria-label="Send message"
+              title="Send"
+            >
+              <i class="bi bi-send-fill" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <!-- Voice status -->
+          <div id="voiceStatus" class="voice-status" hidden role="status" aria-live="assertive">
+            <i class="bi bi-mic-fill pulse-icon" aria-hidden="true"></i>
+            <span id="voiceStatusText">Listening...</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /row -->
+</main>
+
+<!-- ── Footer ── -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+    <p class="mb-0">
+      <strong>Job Mentor Agent</strong> &mdash; Helping India's informal workforce
+    </p>
+    <p class="mb-0 footer-credits">
+      Built with <span aria-label="love">&#x2764;&#xFE0F;</span> using
+      <a href="https://www.ibm.com/watsonx" target="_blank" rel="noopener noreferrer">IBM Watsonx.ai</a> &amp;
+      <a href="https://skillsbuild.org" target="_blank" rel="noopener noreferrer">IBM SkillsBuild</a>
+    </p>
+    <p class="mb-0 text-muted" style="font-size:11px">
+      Emergency helplines: iCall 9152987821 &bull; Vandrevala 1860-2662-345 &bull; CSC 1800-11-0001
+    </p>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- App JS -->
+<script src="/static/js/app.js"></script>
+</body>
+</html>
